@@ -7,6 +7,10 @@ tasks = [
     {"id": 2, "task": "Read a book", "done": False}
 ]
 
+@app.route('/')
+def index():
+    return "Flask Task API is Running! Use /tasks"
+
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
     return jsonify({"tasks": tasks})
@@ -24,4 +28,3 @@ def add_task():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
